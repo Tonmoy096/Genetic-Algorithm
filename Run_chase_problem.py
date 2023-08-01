@@ -65,12 +65,14 @@ def genetic_algorithm(num_batsmen, avg_runs, target_run, population_size, max_it
 
 
 def main():
-    num_batsmen, target_run = map(int, input().split())
+    # Read input from the file
+    with open("inputfile.txt", "r") as file:
+        num_batsmen, target_run = map(int, file.readline().split())
 
-    avg_runs = []
-    for _ in range(num_batsmen):
-        name, avg_run = input().split()
-        avg_runs.append(int(avg_run))
+        avg_runs = []
+        for _ in range(num_batsmen):
+            name, avg_run = file.readline().split()
+            avg_runs.append(int(avg_run))
 
     population_size = 100
     max_iterations = 1000
